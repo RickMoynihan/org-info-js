@@ -53,7 +53,7 @@
 
    There are lots of suggestens, mostly provided by Rick Moynihan.
 
-   + Use properties to support step by step dipslay of list items. Not shure
+   + Use properties to support step by step dipslay of list items. Not sure
      how this could be done (are properties exported?). Maybe use tags instead?
 
 ** TODO Create a separate script for presentations
@@ -65,7 +65,7 @@
    + http://jquery.com/test/ - test browser-compatibility.
    + http://remysharp.com/visual-jquery/ - better and faster docs.
 
-** TODO Text before first Headline
+** TODO Text before first Headline [33%]
 
    Text before first headline will show up on all pages above the navigation
    (not visible in info view though since we scroll the window to the
@@ -126,5 +126,5 @@
    This could be reflected by the script. Always hide drawers, but open them on
    click.
 
-
+   
 * Todo Archive
