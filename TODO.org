@@ -1,0 +1,130 @@
+#+STARTUP:    align fold nodlcheck hidestars oddeven lognotestate
+#+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
+#+TITLE:      TODO
+#+AUTHOR:     Sebastian Rose
+#+EMAIL:      sebastian_rose@gmx.de
+#+LANGUAGE:   en
+#+CATEGORY:   org-info.js
+#+OPTIONS:    H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:(HIDE) tags:not-in-toc
+#+ARCHIVE: ::* Todo Archive
+
+
+* Bugs
+
+** TODO Bug when sections use h1 headlines (??)
+
+   Script will not start properly, when sections use h1 headline.
+
+   Please test. Could be solved by code cleanup on[[ 2008-03-11 Di ]].
+
+** TODO History Bug: less than 50 entries?
+
+   It seems. Not realy shure.
+
+** TODO [/]Fixed TOC and =i=
+
+   '=i=' focusses the first link in T.O.C. if =FIXED\_TOC= is
+   set.
+   + [ ] Unfortunately it still (or again?) scrolls the window for some
+         reason.
+   + [ ] The tab-indexes are wrong: they traverse the first-level links, then
+         the second level links and so on.
+
+
+* TODOs
+
+** TODO Clean and restructure -> View-plugins
+
+   Restructure the code, such that view is separated from the documents
+   structure- and access-functionality of =org_html_manager=.
+
+   How about a packaging mechanism like mootools, jQuery and the others?
+   Just create a org-info-core.js from org-info.js in a first step that just contains
+
+** TODO Interlink tag-index and TOC.
+
+   A feature request of Rick Moynihan.
+
+** TODO Use arrow keys
+
+   A feature request of Rick Moynihan. Navigate using Arrow keys.
+
+** TODO Enhance presentations
+
+   There are lots of suggestens, mostly provided by Rick Moynihan.
+
+   + Use properties to support step by step dipslay of list items. Not shure
+     how this could be done (are properties exported?). Maybe use tags instead?
+
+** TODO Create a separate script for presentations
+
+   ... and utilize jQuery for efects (I prefer jQuery for it's performance,
+   GPL, usability and documentation). For those interested:
+
+   + [[http://docs.jquery.com/Main_Page]] - Homepage
+   + http://jquery.com/test/ - test browser-compatibility.
+   + http://remysharp.com/visual-jquery/ - better and faster docs.
+
+** TODO Text before first Headline
+
+   Text before first headline will show up on all pages above the navigation
+   (not visible in info view though since we scroll the window to the
+   navigation bar when in info view mode). Some will like that, most will say
+   what I say: it's a bug. Pardon me.
+
+   The best solution for this IMHO would be:
+
+   1) [X] Turn the index into a /normal/ =OrgNode=.
+   2) [ ] Put the /text before first headline/ into an =OrgNode= too.
+   3) [ ] Display /text before firste headline/ as the first page in '/info view
+      mode/' and append the TOC at the end of the document.
+
+** TODO Assign Style Classes to navigational Elements
+
+   The navigational elements used should have distinct style class names so
+   their appearance can be customized by the user. Currently they have no style
+   classes but hard coded properties.
+
+** TODO Customizable Text for '/HOME/' and '/Up/'
+
+** TODO Save Cookie
+
+   Optionally safe the documents state to a cookie. This would empower visitors
+   to store the state of an XHMTL file so they could come back the next day and
+   read on.
+
+** TODO  Move the Footnots into own =<div>=
+
+   Footnotes are in the last container element. This is syntactically wrong,
+   since Footnotes for all Sections go into the last parargraps container.
+
+   It's a bug in org IMHO.
+
+** TODO Create Testfiles for all Combinations of relevant Options
+
+   A nice thing to have. We need tests for the different settings of export
+   options concerning scripts like this one usable for other scripts too. Here
+   is a list of options in question and theire shorthands in the =#+OPTIONS:=
+   line. Some of them are not tested at all:
+
+   | Shorthand | What it does                                           |
+   |-----------+--------------------------------------------------------|
+   | H:        | Level of headslines                                    |
+   | toc:      | T.O.C.                                                 |
+   | @:        | Turn on HTML-Tags (think of headlines containing HTML) |
+   | f:        | Footnotes                                              |
+   | skip:     | Text before first headline                             |
+   | tags:     | Tags in headlines/toc                                  |
+   | d:        | Drawers. Candidates for folding.                       |
+
+   Text before first headline is currently displayed on each and every page in
+   info view mode. Footnotes are not tested at all. HTML-Tags should be no
+   problem.
+
+** TODO =d:= exports Drawers.
+
+   This could be reflected by the script. Always hide drawers, but open them on
+   click.
+
+
+* Todo Archive
