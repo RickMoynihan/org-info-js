@@ -1,0 +1,85 @@
+#+STARTUP:    align fold nodlcheck hidestars oddeven lognotestate
+#+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
+#+SEQ_TODO:   QUESTION(q) | ANSWERED(a)
+#+TITLE:      TODO
+#+AUTHOR:     Rick Moynihan
+#+EMAIL:      sebastian_rose@gmx.de
+#+LANGUAGE:   en
+#+CATEGORY:   org-info.js
+#+OPTIONS:    H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:(HIDE) tags:not-in-toc
+#+ARCHIVE: ::* Todo Archive
+
+* Notes
+
+A file for design notes etc...
+
+* Questions & Answers
+
+** QUESTION Is it necessary to scan the document with a timer?
+
+In [[file:index.org::*How%20it%20works][how it works]] you describe how the script polls the DOM for
+changes.  Am I right in thinking that this is because the page might
+be loading, and that you want the script to have generated it's data
+structures on the basis of a complete document/TOC?
+
+I strongly suspect that this isn't necessary, and that you can use the
+javascript onload event.  If you set the following:
+
+#+BEGIN_SRC sgml
+<body onload="load()">
+</body>
+
+</html>
+#+END_SRC
+
+Then you can call an arbitrary function (here called =load()= ) when
+the document is loaded.  Could this simplify your code?  It looks like
+we'll need to patch =org-exp.el= to allow the generation of bodies
+that can call a javascript function onload.
+
+Would it be a good idea to specify a hardcoded onload function in
+every exported document?
+
+I'm thinking if Carsten were to modify =org-exp.el= so that every
+XHTML exported document tried to call a function called
+=orgDocumentLoaded()= then we'd have a generic mechanism for
+triggering Javascript across org-info-js, org-present and anything
+else!
+
+If the function isn't present, then nothing happens, and the browser
+should just ignore the error.
+
+*** ANSWERED Unfortunately maybe
+
+    You can see the effect when loading huge files over UMTS, ISDN or
+    modem. Opera for example claims the document is loaded when it has all the
+    outlines (which it loads first). But at that point the nested elements are
+    still null. It was fun to try this out - if you take a huge file and add
+    some alert() statement (or console.log) to the code you can see the
+    different approaches of browsers when building a page. Opera traverses the
+    document tree level wise (which leads to the problem, but is fast) while
+    Gecko traverses the tree preorder/inorder. jQuery uses onload() only as a
+    fallback.
+
+    The huge file was Cartens Changes.html (in org-mode/ORGWEBPAGE/). Locally I
+    used a file containing 4 x Changes.html on a Omnibook 6100 (933 MHz).
+
+    *But*
+
+    I'm not shure if we should care about this for our org-present, which is
+    used loacaly. If we decide to use jQuery, there is no need to scan the
+    document at all, as jQuery does everything us and we can find and toggle
+    elements on the fly (and use the =.data= property for caching). The first
+    element we'll have to touch will be the first one loaded anyway.
+
+    The jQuery/Prototype way of doing this is would be not to scan at all, but
+    rather doing something like this:
+
+    $("h1").click(function(){org.handleHeadline('click', (this).id);}
+    $("h2").click(function(){org.handleHeadline('click', (this).id);}
+
+    or similar. That means all headlines will have the correct function attached
+    to it if loaded now or later.
+
+    =orgDocumentLoaded()= - yes, a generic mechanism is what we need.
+    :if(orgDocumentLoaded) orgDocumentLoaded();
