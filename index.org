@@ -215,8 +215,8 @@
   remains. [[Using Set()]] contains a list of all supported options for adjusting
   the =org\_html\_manager= to suit your needs.
 
-  A reasonably recent version is available for download on [[http://orgmode.org/#sec-3][orgmode.org]]
-  whilst the latest version is in the git repo:
+  A reasonably recent org version is available for download on [[http://orgmode.org/#sec-4][orgmode.org]]
+  whilst the latest version of the script is in the git repo:
 
   :git-clone git://github.com/SebastianRose/org-info-js.git
 
