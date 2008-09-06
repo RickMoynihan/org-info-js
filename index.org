@@ -33,7 +33,7 @@
   my TODO list since the history mechanism of the script is a good
   alternative to tab usage.
 
-  A list of Changes can be found [[file:changes.ord][here]] (separat file).
+  A list of Changes can be found [[http://github.com/SebastianRose/org-info-js/commits/master][here]] (github.com).
 
   Go to the next section by pressing '=n='.
 
