@@ -10,12 +10,11 @@
 
 * The Name of the Game
 
-  *WARNING org-info.js is under development and changes frequently.
-  This documentation is likely to be out of date.*
+  *WARNING This documentation is likely to be out of date.*
 
   org-info-js (subsequently called /the script/) implements part of
   Emacs Org-mode in it's XHTML-exported files, allowing them to be
-  rendered and browsed in a linuxdoc/info style.
+  rendered and browsed in a linuxdoc/texinfo style.
 
   This documentation is one XHTML file, exported from one *.org file
   using a single keyboard shortcut. No additional postprocessing was
@@ -180,7 +179,7 @@
   |-------+------------------------------------------------------------|
   | ? / ¿ | show this help screen                                      |
   |-------+------------------------------------------------------------|
-  |       | *Moving around*                                            |
+  |       | *Moving around*                                              |
   | n / p | goto the next / previous section                           |
   | N / P | goto the next / previous sibling                           |
   | t / E | goto the first / last section                              |
@@ -190,17 +189,17 @@
   | b / B | go back to last / forward to next visited section.         |
   | h / H | go to main index in this directory / link HOME page        |
   |-------+------------------------------------------------------------|
-  |       | *View*                                                     |
+  |       | *View*                                                       |
   | m / x | toggle the view mode between info and plain / presentation |
   | f / F | fold current section / whole document (plain view only)    |
   |-------+------------------------------------------------------------|
-  |       | *Searching*                                                |
+  |       | *Searching*                                                  |
   | s / r | search forward / backward....                              |
   | S / R | search again forward / backward                            |
   | o     | occur-mode                                                 |
   | c     | clear search highlights                                    |
   |-------+------------------------------------------------------------|
-  |       | *Misc*                                                     |
+  |       | *Misc*                                                       |
   | l / L | display HTML link / Org link                               |
   | v / V | scroll down / up                                           |
 

@@ -680,7 +680,6 @@ var org_html_manager = {
           fnheading.onmouseout = function() {org_html_manager.unhighlight_headline("" + sec);};
         }
         var link = 'javascript:org_html_manager.navigateTo(' + sec + ')';
-        console.log(fnheading);
         var fnsec= new OrgNode ( fn, fnheading, link, 1, this.SECS[0], "footnotes");
         fnsec.folder=folder;
         OrgNode.findTargetsIn(fnsec.isTargetFor, folder);
