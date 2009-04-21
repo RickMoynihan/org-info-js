@@ -1,9 +1,7 @@
+MINIFY_OTPIONS=	 --preserve-semi --line-break 80
+all: minify-info
 
-all: minify-info minify-keys
 
+minify-info: org-info-src.js
+	java -jar ~/bin/yuicompressor-2.4.2.jar $(MINIFY_OTPIONS) org-info-src.js > org-info.js
 
-minify-info: org-info.js
-	java -jar ~/bin/yuicompressor-2.4.2.jar org-info.js > org-info-minified.js
-
-minify-keys: org-keys.js
-	java -jar ~/bin/yuicompressor-2.4.2.jar org-keys.js > org-keys-minified.js
